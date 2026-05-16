@@ -448,11 +448,148 @@
             z-index: 999;
         }
 
+        @keyframes typewriter {
+            0% {
+                width: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+
+        .typewriter-text {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent);
+            overflow: hidden;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border-right: 3px solid var(--accent);
+            animation: typewriter 5s steps(50, end) forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            line-height: 1.2;
+        }
+
         @media (max-width: 768px) {
-            h1 { font-size: 36px; }
-            h2 { font-size: 28px; }
+            h1 { font-size: 32px !important; line-height: 1.2; }
+            h2 { font-size: 24px !important; }
+            h3 { font-size: 18px !important; }
             .hero-background::before { display: none; }
             .pricing-card.featured { transform: scale(1); }
+
+            .max-w-7xl,
+            .max-w-5xl,
+            .max-w-4xl,
+            .max-w-2xl {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+
+            .grid { gap: 16px !important; }
+            .grid-cols-3 { grid-template-columns: 1fr !important; }
+            .grid-cols-4 { grid-template-columns: 2fr 2fr !important; }
+            .grid-cols-2 { grid-template-columns: 1fr !important; }
+            .md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+            .md\:grid-cols-3 { grid-template-columns: 1fr !important; }
+
+            .text-5xl,
+            .text-6xl { font-size: 28px !important; }
+            .text-4xl { font-size: 22px !important; }
+            .text-3xl { font-size: 20px !important; }
+            .text-2xl { font-size: 18px !important; }
+            .text-xl { font-size: 16px !important; }
+            .text-lg { font-size: 14px !important; }
+
+            .py-24,
+            .py-32,
+            .py-20,
+            .py-28 { padding-top: 40px !important; padding-bottom: 40px !important; }
+
+            .gap-12 { gap: 24px !important; }
+            .gap-8 { gap: 16px !important; }
+
+            .feature-card { padding: 20px !important; }
+            .feature-icon { width: 50px !important; height: 50px !important; font-size: 24px !important; margin: 0 auto 16px !important; }
+
+            .pricing-card { padding: 24px !important; }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 14px 24px !important;
+                font-size: 14px !important;
+                width: 100% !important;
+                margin: 10px 0;
+            }
+
+            .flex-col.sm\:flex-row { flex-direction: column !important; }
+
+            .phone-mockup {
+                width: 180px !important;
+                height: 360px !important;
+            }
+
+            .phone-screen {
+                padding: 30px 15px 15px !important;
+            }
+
+            .slider-item { font-size: 12px !important; padding: 0 8px !important; }
+            .slider-container { padding: 12px 0 !important; }
+
+            input, textarea, select {
+                font-size: 16px !important;
+                padding: 12px !important;
+            }
+
+            .badge { font-size: 10px !important; padding: 6px 12px !important; }
+
+            .mb-16 { margin-bottom: 32px !important; }
+            .mb-12 { margin-bottom: 24px !important; }
+            .mb-8 { margin-bottom: 16px !important; }
+
+            .space-y-8 > * + * { margin-top: 20px !important; }
+            .space-y-6 > * + * { margin-top: 16px !important; }
+            .space-y-4 > * + * { margin-top: 12px !important; }
+
+            .w-full { width: 100% !important; }
+
+            /* Grid responsivo */
+            .grid.md\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Ocultar elementos en móvil si es necesario */
+            .hidden.md\:flex { display: none !important; }
+            .hidden.md\:block { display: none !important; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 24px !important; }
+            h2 { font-size: 20px !important; }
+            h3 { font-size: 16px !important; }
+
+            .max-w-7xl,
+            .max-w-5xl,
+            .max-w-4xl,
+            .max-w-2xl {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+            }
+
+            .grid-cols-4 { grid-template-columns: 1fr !important; }
+            .py-24,
+            .py-32,
+            .py-20,
+            .py-28 { padding-top: 24px !important; padding-bottom: 24px !important; }
+
+            .btn-primary,
+            .btn-secondary { padding: 12px 20px !important; font-size: 13px !important; }
+
+            .feature-card { padding: 16px !important; }
+            .pricing-card { padding: 20px !important; }
         }
     </style>
 </head>
@@ -516,24 +653,10 @@
                         </button>
                     </div>
 
-                    <!-- Stats -->
-                    <div class="grid grid-cols-4 gap-4 pt-8 border-t border-gray-600 animate-fade-up delay-300">
-                        <div>
-                            <div class="text-3xl font-bold text-orange-400">2 hrs</div>
-                            <div class="text-sm text-gray-400">Sesión Intensiva</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-bold text-green-400">150+</div>
-                            <div class="text-sm text-gray-400">Negocios Auditados</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-bold text-yellow-400">80%</div>
-                            <div class="text-sm text-gray-400">Descuento</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-bold text-green-400">10x</div>
-                            <div class="text-sm text-gray-400">Ventas</div>
-                        </div>
+                    <!-- Texto Animado -->
+                    <div class="pt-8 border-t border-gray-600 animate-fade-up delay-300">
+                        <div class="typewriter-text">Obtén $10,000 en ventas
+desde Google</div>
                     </div>
                 </div>
 
