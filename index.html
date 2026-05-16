@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoría SEO Local en 2 Horas - Miguel Martinez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #040919;
+            --accent: #ff6000;
+            --light: #faf8f5;
+            --green: #6dcd0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1f35 100%);
+        }
+
+        .gradient-orange {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 96, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 96, 0, 0.6);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-left {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-fade-right {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        .animate-slide-down {
+            animation: slideDown 0.6s ease-out forwards;
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        .hero-background {
+            background: linear-gradient(135deg, var(--primary) 0%, #0f1419 25%, #1a2847 50%, #2d1810 75%, var(--primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 96, 0, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 96, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(109, 205, 10, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(255, 96, 0, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        @keyframes slideInfinite {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: #000;
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 25px;
+            background: #000;
+            border-radius: 0 0 25px 25px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%);
+            border-radius: 35px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        .phone-screen-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .phone-search {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .phone-map {
+            flex: 1;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 12px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-pin {
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(255, 96, 0, 0.4);
+        }
+
+        .phone-listings {
+            background: white;
+            border-radius: 12px;
+            padding: 10px;
+            font-size: 11px;
+        }
+
+        .phone-listing-item {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .phone-listing-item:last-child {
+            border-bottom: none;
+        }
+
+        .phone-listing-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .phone-listing-stars {
+            color: var(--accent);
+            font-size: 10px;
+        }
+
+        .slider-container {
+            overflow: hidden;
+            background: rgba(255, 96, 0, 0.1);
+            border-radius: 12px;
+            padding: 16px 0;
+            margin: 20px 0;
+            border: 2px solid rgba(255, 96, 0, 0.2);
+        }
+
+        .slider-wrapper {
+            display: flex;
+            animation: slideInfinite 20s linear infinite;
+            width: 200%;
+        }
+
+        .slider-item {
+            flex: 0 0 calc(100% / 2 / 4);
+            text-align: center;
+            padding: 0 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 96, 0, 1);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+        }
+
+        .slider-item::before {
+            content: '✓ ';
+            margin-right: 8px;
+            color: #6dcd0a;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 96, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(255, 96, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 96, 0, 0.5);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 16px 40px;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--accent);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 96, 0, 0.2);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--accent);
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--green));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #1a1f35 0%, #0f1419 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 15px rgba(255, 96, 0, 0.2);
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--accent);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured .badge {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 96, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            .hero-background::before { display: none; }
+            .pricing-card.featured { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="animate-slide-down">
+        <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold bg-gradient-to-r from-orange-600 to-yellow-500 bg-clip-text text-transparent">
+                🎯 SEO Local Pro
+            </div>
+            <div class="hidden md:flex gap-8">
+                <a href="#features" class="text-gray-700 hover:text-orange-600 transition">Características</a>
+                <a href="#pricing" class="text-gray-700 hover:text-orange-600 transition">Precios</a>
+                <a href="#form" class="text-gray-700 hover:text-orange-600 transition">Inscribirse</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-background text-white py-24 md:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Contenido Hero -->
+                <div class="space-y-8">
+                    <div class="space-y-4 animate-fade-up">
+                        <div class="badge">🚀 Oferta Limitada - 80% Descuento</div>
+                        <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                            Optimiza tu <span class="bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent">Negocio en Google</span> en 2 Horas
+                        </h1>
+                        <p class="text-xl text-gray-300 max-w-md">
+                            Optimiza tu presencia en Google y transforma búsquedas en ventas reales. Solo Sábado y Domingo.
+                        </p>
+
+                        <!-- Slider Infinito de Negocios -->
+                        <div class="slider-container animate-fade-up delay-100">
+                            <div class="slider-wrapper">
+                                <div class="slider-item">Pizzerías</div>
+                                <div class="slider-item">Restaurantes</div>
+                                <div class="slider-item">Ópticas</div>
+                                <div class="slider-item">Negocios</div>
+                                <div class="slider-item">Zapaterías</div>
+                                <div class="slider-item">Bares</div>
+                                <div class="slider-item">Cafeterías</div>
+                                <div class="slider-item">Clínicas</div>
+                                <!-- Se repite para efecto infinito -->
+                                <div class="slider-item">Pizzerías</div>
+                                <div class="slider-item">Restaurantes</div>
+                                <div class="slider-item">Ópticas</div>
+                                <div class="slider-item">Negocios</div>
+                                <div class="slider-item">Zapaterías</div>
+                                <div class="slider-item">Bares</div>
+                                <div class="slider-item">Cafeterías</div>
+                                <div class="slider-item">Clínicas</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 animate-fade-up delay-200">
+                        <button class="btn-primary" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'})">
+                            ✨ Inscribirse Ahora
+                        </button>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-4 gap-4 pt-8 border-t border-gray-600 animate-fade-up delay-300">
+                        <div>
+                            <div class="text-3xl font-bold text-orange-400">2 hrs</div>
+                            <div class="text-sm text-gray-400">Sesión Intensiva</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-green-400">150+</div>
+                            <div class="text-sm text-gray-400">Negocios Auditados</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-yellow-400">80%</div>
+                            <div class="text-sm text-gray-400">Descuento</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-green-400">10x</div>
+                            <div class="text-sm text-gray-400">Ventas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imágenes Hero: Mapas Google -->
+                <div class="relative animate-fade-right delay-200 space-y-4">
+                    <div class="bg-gradient-to-br from-orange-500 to-yellow-400 rounded-2xl p-1 shadow-2xl">
+                        <img src="mapa-1.webp" alt="mapa-1" class="w-full rounded-xl h-64 object-cover" loading="lazy">
+                        <p class="text-center text-gray-700 font-semibold mt-2 text-sm">mapa-1</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-orange-500 to-yellow-400 rounded-2xl p-1 shadow-2xl">
+                        <img src="mapa-2.webp" alt="mapa-2" class="w-full rounded-xl h-64 object-cover" loading="lazy">
+                        <p class="text-center text-gray-700 font-semibold mt-2 text-sm">mapa-2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ejemplo Google Section -->
+    <section class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Contenido Izquierdo -->
+                <div class="space-y-8 animate-fade-left">
+                    <div class="space-y-4">
+                        <div class="badge" style="background: rgba(255, 96, 0, 0.15); color: var(--accent);">
+                            CÓMO SE VE TU NEGOCIO EN GOOGLE
+                        </div>
+                        <h2 class="text-5xl font-bold mb-4">
+                            Aparece justo donde tu cliente está decidiendo.
+                        </h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            El 76% de las personas que buscan un abogado cerca contactan ese mismo día. Cuando tu despacho aparece en el top 3 del mapa, la consulta se agenda sola.
+                        </p>
+                    </div>
+
+                    <!-- Puntos Destacados -->
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="text-2xl">✅</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Top 3 en el mapa</h4>
+                                <p class="text-gray-600">El lugar donde el 70% de los clics suceden.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="text-2xl">✅</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Reseñas con respuesta</h4>
+                                <p class="text-gray-600">Mostramos que estás presente y te importa cada caso.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="text-2xl">✅</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Áreas de práctica claras</h4>
+                                <p class="text-gray-600">El cliente entiende en qué eres especialista al primer vistazo.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="text-2xl">✅</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Botón directo a WhatsApp</h4>
+                                <p class="text-gray-600">Del mapa a la consulta en un solo clic.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mockup Celular -->
+                <div class="animate-fade-right flex justify-center">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="phone-screen-content">
+                                <div class="phone-search">🔍 abogado cerca de mí</div>
+
+                                <div class="phone-map">
+                                    <div class="phone-pin"></div>
+                                </div>
+
+                                <div class="phone-listings">
+                                    <div class="phone-listing-item">
+                                        <div class="phone-listing-name">Tu Negocio</div>
+                                        <div class="phone-listing-stars">⭐⭐⭐⭐⭐ (248)</div>
+                                    </div>
+                                    <div class="phone-listing-item">
+                                        <div class="phone-listing-name">Competencia 1</div>
+                                        <div class="phone-listing-stars">⭐⭐⭐⭐ (72)</div>
+                                    </div>
+                                    <div class="phone-listing-item">
+                                        <div class="phone-listing-name">Competencia 2</div>
+                                        <div class="phone-listing-stars">⭐⭐⭐ (41)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section class="py-20 md:py-28 gradient-primary text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Lo que dicen nuestros Clientes</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 backdrop-blur rounded-xl p-8 animate-fade-up delay-100">
+                    <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-100 mb-4">
+                        "En 2 horas Miguel me mostró exactamente qué estava haciendo mal en Google. Ahora sé exactamente qué hacer. Increíble valor."
+                    </p>
+                    <div class="font-bold">Carlos Mendez</div>
+                    <div class="text-sm text-gray-300">Dentista, CDMX</div>
+                </div>
+
+                <div class="bg-white bg-opacity-10 backdrop-blur rounded-xl p-8 animate-fade-up delay-200">
+                    <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-100 mb-4">
+                        "La verificación en Google Maps funcionó de inmediato. Mi negocio ahora aparece mejor posicionado. Muy recomendado."
+                    </p>
+                    <div class="font-bold">Roberto García</div>
+                    <div class="text-sm text-gray-300">Plomería, Monterrey</div>
+                </div>
+
+                <div class="bg-white bg-opacity-10 backdrop-blur rounded-xl p-8 animate-fade-up delay-300">
+                    <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-100 mb-4">
+                        "El plan de 30 días que me entregó es oro puro. Ya implementé 3 cosas y veo resultados. Vale 10x lo que pagué."
+                    </p>
+                    <div class="font-bold">Mariana López</div>
+                    <div class="text-sm text-gray-300">Coach, Guadalajara</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">¿Qué Incluye?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Sesión intensiva de 2 horas: Diagnóstico completo + Plan de acción personalizado
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card card-hover animate-fade-up delay-100">
+                    <div class="feature-icon">🔎</div>
+                    <h3 class="text-xl font-bold mb-3">Auditoría Completa</h3>
+                    <p class="text-gray-600">
+                        Revisamos tu presencia en Google, Google My Business, mapa y visibilidad
+                    </p>
+                </div>
+
+                <div class="feature-card card-hover animate-fade-up delay-200">
+                    <div class="feature-icon">✅</div>
+                    <h3 class="text-xl font-bold mb-3">Verificación Google</h3>
+                    <p class="text-gray-600">
+                        Realizamos la verificación de tu negocio en Google Maps durante la sesión
+                    </p>
+                </div>
+
+                <div class="feature-card card-hover animate-fade-up delay-300">
+                    <div class="feature-icon">📋</div>
+                    <h3 class="text-xl font-bold mb-3">Plan Personalizado</h3>
+                    <p class="text-gray-600">
+                        Entregamos un plan de acción de 30 días específico para tu negocio
+                    </p>
+                </div>
+
+                <div class="feature-card card-hover animate-fade-up delay-100">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="text-xl font-bold mb-3">Análisis de Competencia</h3>
+                    <p class="text-gray-600">
+                        Identificamos qué están haciendo bien tus competidores locales
+                    </p>
+                </div>
+
+                <div class="feature-card card-hover animate-fade-up delay-200">
+                    <div class="feature-icon">💡</div>
+                    <h3 class="text-xl font-bold mb-3">Estrategias Probadas</h3>
+                    <p class="text-gray-600">
+                        Compartimos tácticas específicas que funcionan en tu industria local
+                    </p>
+                </div>
+
+                <div class="feature-card card-hover animate-fade-up delay-300">
+                    <div class="feature-icon">📞</div>
+                    <h3 class="text-xl font-bold mb-3">Seguimiento Incluido</h3>
+                    <p class="text-gray-600">
+                        Soporte por WhatsApp durante los próximos 30 días para implementación
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-20 md:py-28 gradient-primary text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Sesión Intensiva: 2 Horas</h2>
+                <p class="text-xl text-gray-300">Sábado y Domingo - Diagnóstico y Plan de Acción en Vivo</p>
+            </div>
+
+            <div class="space-y-8 max-w-3xl mx-auto">
+                <!-- Saturday -->
+                <div class="animate-fade-up delay-100">
+                    <div class="flex gap-4 md:gap-8">
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 flex items-center justify-center text-2xl font-bold mb-4">📍</div>
+                            <div class="hidden md:block w-1 h-40 bg-orange-500"></div>
+                        </div>
+                        <div class="pb-8">
+                            <h3 class="text-2xl font-bold mb-2">Sábado - 1 Hora</h3>
+                            <div class="space-y-2 text-gray-300">
+                                <p>✅ Auditoría completa de tu presencia en Google</p>
+                                <p>✅ Análisis de Google My Business</p>
+                                <p>✅ Revisión de fichas de competidores</p>
+                                <p>✅ Sesión en vivo con Miguel Martinez</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunday -->
+                <div class="animate-fade-up delay-200">
+                    <div class="flex gap-4 md:gap-8">
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 flex items-center justify-center text-2xl font-bold mb-4">⚡</div>
+                        </div>
+                        <div class="pb-8">
+                            <h3 class="text-2xl font-bold mb-2">Domingo - 1 Hora</h3>
+                            <div class="space-y-2 text-gray-300">
+                                <p>✅ Verificación de tu negocio en Google Maps</p>
+                                <p>✅ Plan de acción personalizado de 30 días</p>
+                                <p>✅ Estrategias específicas para tu industria</p>
+                                <p>✅ Q&A en vivo y preguntas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bonus -->
+                <div class="mt-8 bg-white bg-opacity-10 backdrop-blur rounded-xl p-6 animate-fade-up delay-300 border-l-4 border-green-400">
+                    <h4 class="text-xl font-bold mb-3">🎁 BONUS: Soporte 30 Días</h4>
+                    <p class="text-gray-300">Acceso por WhatsApp con Miguel para resolver dudas y guiarte en la implementación de tu plan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Conoce a Tu Instructor</h2>
+                <p class="text-xl text-gray-600">Aprende de un especialista con años de experiencia en SEO Local</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+                <!-- Foto del Instructor -->
+                <div class="animate-fade-left">
+                    <div class="bg-gradient-to-br from-orange-500 to-yellow-400 rounded-2xl p-2">
+                        <img src="seo-manager-jose-miguel-martinez.webp" alt="Miguel Martinez - SEO Manager" class="w-full rounded-xl shadow-2xl object-cover h-auto" style="aspect-ratio: 3/4;">
+                    </div>
+                </div>
+
+                <!-- Info del Instructor -->
+                <div class="space-y-6 animate-fade-right">
+                    <div>
+                        <h3 class="text-4xl font-bold mb-2">Miguel Martinez</h3>
+                        <div class="text-xl text-orange-600 font-semibold mb-4">🎯 Especialista SEO Manager</div>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            Especialista en auditoría de presencia en Google y optimización local. He auditado y optimizado más de 150+ negocios, ayudándolos a dominar su presencia en Google Maps y atraer más clientes de su ciudad.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <div class="text-2xl">✅</div>
+                            <div>
+                                <div class="font-bold text-gray-800">150+ Auditorías Completadas</div>
+                                <div class="text-gray-600">Diagnósticos detallados de presencia en Google</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="text-2xl">🏆</div>
+                            <div>
+                                <div class="font-bold text-gray-800">Google My Business Experto</div>
+                                <div class="text-gray-600">Especialista certificado en optimización local</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="text-2xl">📍</div>
+                            <div>
+                                <div class="font-bold text-gray-800">Google Maps Mastery</div>
+                                <div class="text-gray-600">Experto en verificación y posicionamiento local</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="text-2xl">⚡</div>
+                            <div>
+                                <div class="font-bold text-gray-800">Resultados Inmediatos</div>
+                                <div class="text-gray-600">Planes accionables implementables desde el día 1</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-orange-50 to-yellow-50 p-6 rounded-xl border-l-4 border-orange-600">
+                        <p class="text-gray-800 italic">
+                            "En 2 horas puedo transformar cómo tu negocio aparece en Google. No necesita ser complicado. Necesita ser estratégico."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Una Sola Oportunidad</h2>
+                <p class="text-xl text-gray-600">Sesión de 2 horas: Diagnóstico + Plan personalizado + 30 días de soporte</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <!-- Único Plan -->
+                <div class="pricing-card featured animate-fade-up delay-100">
+                    <div class="badge absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">⚡ OFERTA ESPECIAL</div>
+
+                    <h3 class="text-3xl font-bold mb-2">Auditoría + Plan de Acción</h3>
+                    <p class="text-gray-600 mb-8">Con Miguel Martinez - Especialista SEO Manager</p>
+
+                    <div class="mb-8 p-6 bg-orange-50 rounded-xl">
+                        <div class="flex items-end gap-3 justify-center mb-4">
+                            <span class="text-3xl text-gray-500 line-through">$6,500</span>
+                            <span class="text-5xl font-bold text-orange-600">$1,300</span>
+                            <span class="text-gray-600">MXN</span>
+                        </div>
+                        <p class="text-center text-green-600 font-bold">Ahorra $5,200 - 80% de descuento</p>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <h4 class="font-bold text-gray-800 text-lg">✅ Incluye:</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3">
+                                <span class="text-orange-600 font-bold">✓</span>
+                                <span>Sesión en vivo Sábado (1 hora): Auditoría completa de tu negocio en Google</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-orange-600 font-bold">✓</span>
+                                <span>Sesión en vivo Domingo (1 hora): Verificación en Google Maps + Plan personalizado</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-orange-600 font-bold">✓</span>
+                                <span>Análisis de competidores locales</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-orange-600 font-bold">✓</span>
+                                <span>Plan de acción de 30 días específico para tu industria</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-orange-600 font-bold">✓</span>
+                                <span>Estrategias probadas para atraer clientes locales</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-orange-600 font-bold">✓</span>
+                                <span>Soporte por WhatsApp durante 30 días</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-orange-600 font-bold">✓</span>
+                                <span>Garantía: Si no te satisface, 100% reembolso</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button class="btn-primary w-full text-lg py-4 font-bold" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'})">
+                        🎯 Inscribirse Ahora - $1,300 MXN
+                    </button>
+
+                    <p class="text-center text-gray-600 text-sm mt-6">
+                        <strong>⏰ ATENCIÓN:</strong> Solo Sábado y Domingo. Cupos limitados - Máximo 10 personas
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Final -->
+    <section class="gradient-primary text-white py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 text-center animate-fade-up">
+            <h2 class="text-4xl font-bold mb-4">¿Listo para Transformar tu Negocio en Google?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Sábado y Domingo: 2 horas de sesión intensiva + 30 días de soporte<br>
+                <strong class="text-orange-400">Solo $1,300 MXN (antes $6,500)</strong>
+            </p>
+            <button class="btn-primary text-lg px-8 py-4" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'})">
+                ✨ Asegurar Mi Lugar Ahora
+            </button>
+            <p class="text-gray-300 mt-6 text-sm">⏰ Cupos limitados a 10 personas • Garantía de 30 días o dinero de vuelta</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="form" class="py-20 md:py-28 bg-white">
+        <div class="max-w-2xl mx-auto px-4">
+            <div class="text-center mb-12 animate-fade-up">
+                <h2 class="text-4xl font-bold mb-4">Asegura Tu Lugar</h2>
+                <p class="text-xl text-gray-600">
+                    Completa el formulario y recibe el enlace de Zoom para las sesiones de Sábado y Domingo
+                </p>
+            </div>
+
+            <form class="space-y-6 animate-fade-up delay-200" onsubmit="handleSubmit(event)">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Nombre Completo *</label>
+                        <input type="text" placeholder="Tu nombre" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Email *</label>
+                        <input type="email" placeholder="tu@email.com" required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">WhatsApp (con código país) *</label>
+                    <input type="tel" placeholder="+52 55 1234 5678" required>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Nombre de tu Negocio *</label>
+                    <input type="text" placeholder="Mi Negocio" required>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Tipo de Negocio *</label>
+                    <select required>
+                        <option value="">-- Selecciona --</option>
+                        <option value="restaurante">Restaurante</option>
+                        <option value="salud">Salud (Odontología, Médico, Spa)</option>
+                        <option value="servicios">Servicios Locales (Plomería, Electricista, etc)</option>
+                        <option value="retail">Retail (Tienda, Ropa, etc)</option>
+                        <option value="agencia">Agencia (Viajes, Seguros, etc)</option>
+                        <option value="educacion">Educación (Academia, Clases, etc)</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">¿Cuál es tu principal desafío con SEO Local?</label>
+                    <textarea placeholder="Ej: Aparecer en Google Maps, obtener más reseñas, competencia local..." rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary w-full text-lg py-4 font-bold">
+                    ✨ Confirmar Mi Inscripción - $1,300 MXN
+                </button>
+
+                <p class="text-center text-sm text-gray-600">
+                    Recibirás el enlace de Zoom en tu email y WhatsApp en 5 minutos<br>
+                    <strong class="text-orange-600">Garantía:</strong> 30 días o 100% reembolso
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8 text-center text-gray-700">
+        <p>&copy; 2024 SEO Local Pro. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('¡Gracias por tu interés! Te enviaremos un email de confirmación en breve.');
+        }
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade-up, .animate-fade-left, .animate-fade-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
