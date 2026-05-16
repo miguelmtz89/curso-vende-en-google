@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por tu Inscripción! - SEO Local Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #040919;
+            --accent: #ff6000;
+            --light: #faf8f5;
+            --green: #6dcd0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, #0f1419 25%, #1a2847 50%, #2d1810 75%, var(--primary) 100%);
+            color: var(--primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 96, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 96, 0, 0.6);
+            }
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--green) 0%, #5ab808 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 20px rgba(109, 205, 10, 0.3);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(255, 96, 0, 0.05) 0%, rgba(109, 205, 10, 0.05) 100%);
+            border: 2px solid rgba(255, 96, 0, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 28px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            font-size: 20px;
+            min-width: 24px;
+        }
+
+        .info-text {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .info-text strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .timeline {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 28px;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-number {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            min-width: 28px;
+        }
+
+        .timeline-text {
+            padding-top: 4px;
+            color: #555;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 96, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 96, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: var(--primary);
+            border: 2px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #e8e8e8;
+            border-color: var(--accent);
+        }
+
+        .btn-small {
+            padding: 9px 14px !important;
+            font-size: 13px !important;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #999;
+            text-align: center;
+        }
+
+        .form-container {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            overflow: hidden;
+        }
+
+        .form-container iframe {
+            width: 100% !important;
+            max-width: 100% !important;
+            border-radius: 8px;
+        }
+
+        .form-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 96, 0, 0.1);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid var(--accent);
+            margin-bottom: 20px;
+            text-align: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px;
+                border-radius: 12px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .info-box, .timeline {
+                padding: 16px;
+            }
+
+            .btn {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+
+            .success-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 40px;
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="badge">✅ ¡Inscripción Confirmada!</div>
+
+        <div class="success-icon">✅</div>
+
+        <h1>¡Gracias por tu Inscripción!</h1>
+        <p class="subtitle">Tu lugar está asegurado para la sesión intensiva de 4 horas</p>
+
+        <div class="info-box">
+            <div class="info-item">
+                <div class="info-icon">📧</div>
+                <div class="info-text">
+                    Revisa tu <strong>email</strong> en los próximos 5 minutos para recibir el enlace de Google Meet
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">💬</div>
+                <div class="info-text">
+                    También recibirás un mensaje en <strong>WhatsApp</strong> con toda la información
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">⏰</div>
+                <div class="info-text">
+                    Sesión: <strong>Sábado y Domingo</strong> (4 horas totales)
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">💰</div>
+                <div class="info-text">
+                    Precio: <strong>$1,500 MXN</strong> (antes $6,500)
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-title">📋 Próximos Pasos:</div>
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-text">Revisa tu email por el enlace de Google (maximo 1 hr.)</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-text">Prepara tu negocio (url de Google, fotos, etc)</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-text">Únete a la sesión de Sábado a la hora indicada</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-text">Recibe tu plan de acción de 30 días el Domingo</div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="form-title">📋 Completa Estos Detalles Importantes</div>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc63UjwYy5SulNq7beGzqU_ajQymRfVynr9DEiE9i8Y2hSvkQ/viewform?embedded=true" width="640" height="1289" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="https://wa.me/5665817161?text=Hola%20%F0%9F%91%8B%20Me%20acabo%20de%20inscribir%20a%20la%20sesi%C3%B3n%20de%20SEO%20Local%20Pro%20y%20tengo%20una%20pregunta." target="_blank" class="btn btn-primary btn-small">
+                💬 Contactar por WhatsApp
+            </a>
+            <a href="/" class="btn btn-secondary btn-small">
+                ← Volver al Inicio
+            </a>
+        </div>
+
+        <p class="footer-text">
+            ¿Preguntas? Contáctanos por WhatsApp o email.<br>
+            <strong>Garantía:</strong> 30 días o 100% reembolso
+        </p>
+    </div>
+
+    <script>
+        // Obtener parámetros de la URL (si los hay)
+        const urlParams = new URLSearchParams(window.location.search);
+        const nombre = urlParams.get('nombre');
+
+        if (nombre) {
+            document.querySelector('h1').textContent = `¡Gracias ${nombre}!`;
+        }
+
+        // WhatsApp configurado
+        // Número: 5665817161
+    </script>
+</body>
+</html>
